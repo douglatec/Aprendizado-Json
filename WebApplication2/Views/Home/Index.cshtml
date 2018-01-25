@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+</head>
+
+<body>
+    <div>
+
+        <script>
+            $(function () {
+                $.ajax({
+                    dataType: "json",
+                    type: "GET",
+                    url: "/Home/GetDados",
+                    success: function (dados) {
+                        $(dados).each(function (i) {
+                            document.writeln("<p>Nome: " + dados[i].Nome + " | URL: " + dados[i].URL + "</p>")
+                            //console.log("<p>Nome: " + dados[i].Nome + " | URL: " + dados[i].URL + "</p>")
+                        });
+                    }
+                });
+            });
+        </script>
+
+
+
+    </div>
+</body>
+</html>
